@@ -25,6 +25,13 @@ function escribir_lento() {
 # Limpia la terminal antes de mostrar los créditos
 clear
 
+# Verifica si figlet está instalado
+if ! command -v figlet &> /dev/null; then
+    echo -e "${YELLOW}El programa 'figlet' no está instalado.${RESET}"
+    echo -e "Puedes instalarlo con: ${CYAN}sudo apt install figlet${RESET}"
+    exit 1
+fi
+
 # Mostrar título principal con arte ASCII
 echo -e "${MAGENTA}"             # Cambia el color a magenta
 figlet "Creditos"                # Usa figlet para generar texto decorativo
